@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example</title>
+  </head>
+  <body>
+    <input id="orange" type="image" src="orange.png" onclick="orange()" />
+    <input id="gref" type="image" src="gref.png" onclick="gref()" />
+		<br>
+		<canvas id="canvas" width="300" height="300">
+			Pahar
+		</canvas>
+
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		var level = 0;
+    ctx.beginPath();
+    ctx.moveTo(10, 10);
+    ctx.lineTo(10, 300);
+    ctx.lineTo(110, 300);
+    ctx.lineTo(110, 10);
+    ctx.stroke();
+	</script>
+
+    <script>
+        function orange() {
+					var h=40;
+					if ( level < 7*h ) {
+						ctx.fillStyle = 'orange';
+						ctx.fillRect(10, 300-level-h, 100, h);
+						level = level + h;
+          }
+        };
+
+        function gref() {
+					var h=40;
+					if ( level < 7*h ) {
+						ctx.fillStyle = '#e65f47'; // R 230 G 95 B 71
+						ctx.fillRect(10, 300-level-h, 100, h);
+						level = level + h;
+          }
+        };
+    </script>
+  </body>
+</html>
